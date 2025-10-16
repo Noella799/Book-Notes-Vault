@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book & Notes Vault</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <strong class="brand">Book & Notes Vault</strong>
+        <a href="#about">About</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#records">Catalog</a>
+        <a href="#form">Edit</a>
+        <a href="#settings">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container grid" tabindex="-1">
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>Save your books here and keep the key tags <br>
+         Track your books and notes with tags and pages.<br>
+         And don't worry about your data to go missing it will be saved in local Storage.</p>
+    </section>
+
+    <section id="dashboard" class="panel">
+      <h2>Dashboard</h2>
+      <div class="row cols-3">
+        <div><div class="muted">Total</div><div id="stat-count" class="stat">0</div></div>
+        <div><div class="muted">Pages</div><div id="stat-pages" class="stat">0</div></div>
+        <div><div class="muted">Top Tag</div><div id="stat-top" class="stat">—</div></div>
+      </div>
+      <div class="mt-1"><div class="muted">Added last 7 days</div><div class="bars" id="bars"></div></div>
+      <div aria-live="polite" id="capMsg" class="muted mt-1"></div>
+    </section>
+
+    <section id="records" class="panel">
+      <h2>Catalog</h2>
+      <label for="search">Regex search</label>
+      <input id="search" placeholder="e.g. ^@tag:notes|\b(\w+)\s+\1\b" />
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Title</th><th>Author</th><th>Tag</th><th>Pages</th><th></th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+
+    <section id="form" class="panel">
+      <h2>Add / Edit</h2>
+      <form id="bkForm">
+        <input type="hidden" id="recId" />
+        <label>Title<input id="title" required /></label>
+        <label>Author<input id="author" required /></label>
+        <label>Pages<input id="pages" inputmode="numeric" required /></label>
+        <label>Tag<input id="tag" required /></label>
+        <label>Date<input id="dateAdded" placeholder="2025-10-15" required /></label>
+        <div id="formErrors" class="bad"></div>
+        <button class="btn">Save</button>
+      </form>
+    </section>
+
+    <section id="settings" class="panel">
+      <h2>Settings</h2>
+      <label>Speed (min/page)<input id="readSpeed" inputmode="decimal" /></label>
+      <label>Monthly pages target<input id="targetPages" inputmode="numeric" /></label>
+      <button id="saveSettings" class="btn">Save settings</button>
+    </section>
+
+    <footer class="panel"><small class="muted">© 2025 Book & Notes Vault</small></footer>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book & Notes Vault</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary">
+        <strong class="brand">Book & Notes Vault</strong>
+        <a href="#about">About</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#records">Catalog</a>
+        <a href="#form">Edit</a>
+        <a href="#settings">Settings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container grid" tabindex="-1">
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>Track your books and notes with tags and pages. Data saves in localStorage.</p>
+    </section>
+
+    <section id="dashboard" class="panel">
+      <h2>Dashboard</h2>
+      <div class="row cols-3">
+        <div><div class="muted">Total</div><div id="stat-count" class="stat">0</div></div>
+        <div><div class="muted">Pages</div><div id="stat-pages" class="stat">0</div></div>
+        <div><div class="muted">Top Tag</div><div id="stat-top" class="stat">—</div></div>
+      </div>
+      <div class="mt-1"><div class="muted">Added last 7 days</div><div class="bars" id="bars"></div></div>
+      <div aria-live="polite" id="capMsg" class="muted mt-1"></div>
+    </section>
+
+    <section id="records" class="panel">
+      <h2>Catalog</h2>
+      <label for="search">Regex search</label>
+      <input id="search" placeholder="e.g. ^@tag:notes|\b(\w+)\s+\1\b" />
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Title</th><th>Author</th><th>Tag</th><th>Pages</th><th></th></tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </section>
+
+    <section id="form" class="panel">
+      <h2>Add / Edit</h2>
+      <form id="bkForm">
+        <input type="hidden" id="recId" />
+        <label>Title<input id="title" required /></label>
+        <label>Author<input id="author" required /></label>
+        <label>Pages<input id="pages" inputmode="numeric" required /></label>
+        <label>Tag<input id="tag" required /></label>
+        <label>Date<input id="dateAdded" placeholder="2025-10-15" required /></label>
+        <div id="formErrors" class="bad"></div>
+        <button class="btn">Save</button>
+      </form>
+    </section>
+
+    <section id="settings" class="panel">
+      <h2>Settings</h2>
+      <label>Speed (min/page)<input id="readSpeed" inputmode="decimal" /></label>
+      <label>Monthly pages target<input id="targetPages" inputmode="numeric" /></label>
+      <button id="saveSettings" class="btn">Save settings</button>
+    </section>
+
+    <footer class="panel"><small class="muted">© Book & Notes Vault</small></footer>
+  </main>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
+
